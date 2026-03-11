@@ -3202,12 +3202,4 @@ streamlit run app_data_validator.py
 
 ---
 
-### 추천 학습 순서
-
-```
-입문자:  1 → 2 → 3 → 4 → 5         (Python 실습만)
-중급자:  1 → 2 → 3 → 4 → 5 → 6 → 7 (시각화/스케일링 포함)
-전체:    1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10
-```
-
-> 모든 파일은 `bigdata-project/2w/` 폴더에서 바로 실행할 수 있다. Streamlit 앱(9, 10번)은 `streamlit run 파일명.py` 명령으로 실행한다.
+> 모든 파일은 `./2_week/source/` 폴더에서 바로 실행할 수 있다. Streamlit 앱(9, 10번)은 `streamlit run 파일명.py` 명령으로 실행한다.
