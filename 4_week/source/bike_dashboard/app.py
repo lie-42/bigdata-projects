@@ -18,7 +18,7 @@ pg = st.navigation({
 })
 
 # 사이드바 공통 요소
-st.sidebar.image("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Seoul_Bike_Logo.svg/200px-Seoul_Bike_Logo.svg.png", width=100)
+st.sidebar.image("https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Seoul_Bike_logo.svg/200px-Seoul_Bike_logo.svg.png", width=100)
 st.sidebar.markdown("---")
 st.sidebar.caption("4주차 실습 프로젝트")
 

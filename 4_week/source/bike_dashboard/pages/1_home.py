@@ -8,7 +8,6 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from utils.data_loader import load_bike_data, get_station_summary
 
 st.title('🚲 서울시 공공자전거 대시보드')
-st.caption('데이터 기간: 2025.01 ~ 2025.03 (시뮬레이션)')
 
 # ---- 데이터 로딩 (캐싱됨) ----
 df = load_bike_data()
@@ -42,10 +41,13 @@ kpi4.metric('대여소 수', f"{filtered['대여소'].nunique()}곳")
 
 st.divider()
 
-# ---- 일별 추이 차트 (Plotly) ----
-daily = filtered.groupby('날짜')['대여건수'].sum().reset_index()
-fig = px.area(daily, x='날짜', y='대여건수',
-              title='일별 대여 건수 추이',
+# ---- 데이터 기간 표시 ----
+st.caption(f"데이터 기간: {filtered['날짜'].min().strftime('%Y.%m')} ~ {filtered['날짜'].max().strftime('%Y.%m')}")
+
+# ---- 월별 추이 차트 (Plotly) ----
+monthly = filtered.groupby('날짜')['대여건수'].sum().reset_index()
+fig = px.area(monthly, x='날짜', y='대여건수',
+              title='월별 대여 건수 추이',
               color_discrete_sequence=['#22d3ee'])
 fig.update_layout(
     plot_bgcolor='rgba(0,0,0,0)',
