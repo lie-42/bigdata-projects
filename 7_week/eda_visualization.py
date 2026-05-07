@@ -313,10 +313,6 @@ with tab4:
             decoded_body = unquote(body, encoding="latin-1")
             st.text(f"Body (디코딩): {decoded_body}")
 
-        with st.expander("원본 HTTP 요청 전체 보기"):
-            raw = str(normal_row["raw_request"]) if pd.notna(normal_row["raw_request"]) else ""
-            st.code(raw, language="http")
-
     with col2:
         st.subheader("🚨 공격 요청 (Anomalous)")
         anomalous_df = df[df["label"] == "Anomalous"]
@@ -337,10 +333,6 @@ with tab4:
         if body:
             decoded_body = unquote(body, encoding="latin-1")
             st.text(f"Body (디코딩): {decoded_body}")
-
-        with st.expander("원본 HTTP 요청 전체 보기"):
-            raw = str(anomalous_row["raw_request"]) if pd.notna(anomalous_row["raw_request"]) else ""
-            st.code(raw, language="http")
 
     # 키워드 검색
     st.markdown("---")

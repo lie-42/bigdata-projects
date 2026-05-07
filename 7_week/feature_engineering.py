@@ -188,7 +188,7 @@ print(f"{'─' * 65}")
 
 # LLM 테스트용 샘플 (원본 텍스트 포함 — LLM에 HTTP 요청을 보여줄 때 사용)
 text_cols = ["method", "url", "url_decoded", "body", "body_decoded",
-             "full_text", "raw_request", "label"]
+             "full_text", "label"]
 available_text_cols = [c for c in text_cols if c in df.columns]
 llm_sample = df[available_text_cols + feature_cols + ["is_attack"]].sample(
     500, random_state=42
@@ -229,7 +229,7 @@ print("""
     -> attack_examples.py, attack_quiz.py
 
   2교시: CSIC 2010 데이터 로드 + EDA + 시각화
-    -> data_load_explore.py, eda_visualization.py (Streamlit)
+    -> data_load_explore.ipynb, eda_keyword_analysis.ipynb, eda_visualization.ipynb / eda_visualization.py (Streamlit)
 
   3교시: 전처리 + 특성 엔지니어링 + 학습 데이터 준비
     -> preprocessing.py, feature_engineering.py (지금 이 파일)
