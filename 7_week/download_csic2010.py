@@ -139,7 +139,7 @@ def main():
         print(f"    {method:6s}: {count:>8,}건")
 
     # 저장
-    output_path = os.path.join(script_dir, "csic2010_requests.csv")
+    output_path = os.path.join(script_dir, "csic2010_requests_org.csv")
     df.to_csv(output_path, index=False, encoding="utf-8-sig")
 
     file_size = os.path.getsize(output_path) / 1024 / 1024
