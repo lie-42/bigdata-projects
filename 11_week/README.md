@@ -5,7 +5,7 @@
 | 교시 | 파일명 | 내용 | 강의안 |
 |------|--------|------|--------|
 | 1교시 | `01_image_basics.ipynb` | 이미지 열기·텐서 변환·전처리 파이프라인·CIFAR-10 로드 | [1교시](../../11_week/plane/1교시_이미지_데이터_이해_및_전처리.md) |
-| 2교시 | `02_data_augmentation.ipynb` | torchvision transforms 8가지 + 학습/검증 파이프라인 분리 | [2교시](../../11_week/plane/2교시_이미지_데이터_증강.md) |
+| 2교시 | `02_data_augmentation.ipynb` | torchvision transforms 6가지 + 학습/검증 파이프라인 분리 | [2교시](../../11_week/plane/2교시_이미지_데이터_증강.md) |
 | 3교시 | `03_pretrained_vit.ipynb` | HuggingFace pipeline + ViT + 본인 사진 분류 + Top-5 해석 | [3교시](../../11_week/plane/3교시_HuggingFace_Vision_사전학습_모델.md) |
 
 ## 사전 준비

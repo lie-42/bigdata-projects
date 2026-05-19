@@ -11,6 +11,23 @@
 | `landscape.jpg` | ViT 시연용 풍경 사진 | 가로/세로 1024px 내외, JPEG |
 | `my_phone.jpg` | (학생용) 본인 휴대폰 사진 자리 | 학생이 직접 업로드 |
 
+## 이미지 출처 (Wikimedia Commons)
+
+현재 폴더에 포함된 샘플 이미지의 원본 출처입니다. 모두 **Wikimedia Commons**의 공개 라이선스(CC) 작품입니다.
+
+| 파일명 | 원본 페이지 | 라이선스 | 작가 / 비고 |
+|--------|------------|----------|------------|
+| `dog.jpg` | [Labrador Retriever portrait](https://commons.wikimedia.org/wiki/File:Labrador_Retriever_portrait.jpg) | Public Domain | Wikimedia 기여자 |
+| `cat.jpg` | [Cat03](https://commons.wikimedia.org/wiki/File:Cat03.jpg) | CC BY-SA 3.0 | Alvesgaspar — 표준 고양이 참조 이미지 |
+| `landscape.jpg` | [Everest North Face toward Base Camp (Tibet, 2006)](https://commons.wikimedia.org/wiki/File:Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg) | CC BY-SA 2.5 | Luca Galuzzi (www.galuzzi.it) |
+
+> **직접 다운로드 URL** (`requests.get()`으로 받을 때):
+> - `dog.jpg`: `https://upload.wikimedia.org/wikipedia/commons/9/90/Labrador_Retriever_portrait.jpg`
+> - `cat.jpg`: `https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg`
+> - `landscape.jpg`: `https://upload.wikimedia.org/wikipedia/commons/e/e7/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg`
+
+> **인용/크레딧 표기 시**: CC BY-SA 라이선스(Cat03, Everest)는 **저작자 표시 + 동일 조건 변경 허락**이 의무입니다. 수업 자료에 출처를 명시하면 충분합니다.
+
 ## 강사 준비 가이드
 
 1. 저작권 문제가 없는 이미지를 사용하세요. 추천 소스:
@@ -43,7 +60,7 @@ Path("sample_images").mkdir(exist_ok=True)
 urls = {
     "dog.jpg":       "https://upload.wikimedia.org/wikipedia/commons/9/90/Labrador_Retriever_portrait.jpg",
     "cat.jpg":       "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg",
-    "landscape.jpg": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+    "landscape.jpg": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg",
 }
 for name, url in urls.items():
     path = Path("sample_images") / name
