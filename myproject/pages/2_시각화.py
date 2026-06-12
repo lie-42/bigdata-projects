@@ -278,5 +278,33 @@ for col, (cls_name, file_list) in zip(edge_cols, splits[split_edge].items()):
     col.pyplot(fig)
     plt.close(fig)
 
+# ── 6. 차원 축소 (PCA / t-SNE) ─────────────────────────────
+st.subheader("6. 차원 축소 시각화 (PCA / t-SNE)")
+st.caption(
+    "이미지를 32×32 벡터로 펼친 뒤 2차원으로 축소합니다.\n"
+    "클래스별로 점들이 잘 뭉쳐지고 분리될수록 모델이 쉽게 구별할 수 있는 데이터입니다."
+)
 
+TSNE_N = st.slider("샘플 수 (클래스당)", 30, 150, 60, key="tsne_n")
+with st.spinner("PCA / t-SNE 계산 중... (처음 한 번만 오래 걸립니다)"):
+    X_pca2, X_tsne, y_labels, var_ratio = compute_embeddings(TSNE_N)
+
+unique_labels = sorted(set(y_labels))
+palette = sns.color_palette("tab10", len(unique_labels))
+color_map = {label: palette[i] for i, label in enumerate(unique_labels)}
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+for ax, data, suffix in zip(axes, [X_pca2, X_tsne], ["PCA", "t-SNE"]):
+    for label in unique_labels:
+        idx = [i for i, l in enumerate(y_labels) if l == label]
+        ax.scatter([data[i, 0] for i in idx], [data[i, 1] for i in idx],
+                   c=[color_map[label]], label=label, alpha=0.5, s=15)
+    ax.set_title(f"{suffix} 시각화")
+    ax.legend(fontsize=7, markerscale=2)
+    if suffix == "PCA":
+        ax.set_xlabel(f"PC1 ({var_ratio[0]*100:.1f}%)")
+        ax.set_ylabel(f"PC2 ({var_ratio[1]*100:.1f}%)")
+plt.tight_layout()
+st.pyplot(fig)
+plt.close(fig)
 
