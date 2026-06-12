@@ -23,6 +23,7 @@ def save_model(model: nn.Module, path: Path = MODEL_PATH):
 def load_model(num_classes: int = 2, path: Path = MODEL_PATH, device: str = "cpu") -> nn.Module:
     model = build_model(num_classes=num_classes, pretrained=False)
     model.load_state_dict(torch.load(path, map_location=device))
+    model = model.to(device)
     model.eval()
     return model
 
